@@ -63,8 +63,8 @@ public class AdminApplication implements WebMvcConfigurer {
         chainDefinition.addPathDefinition("/login", "anon");
         chainDefinition.addPathDefinition("/register", "anon");
         chainDefinition.addPathDefinition("/api", "authcBasic, rest[api]");
-        chainDefinition.addPathDefinition("/*", "authc"); 
         chainDefinition.addPathDefinition("/logout", "logout");
+        chainDefinition.addPathDefinition("/*", "authc"); 
         return chainDefinition;
     }
     
