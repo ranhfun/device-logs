@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" dir="ltr" th:replace="~{layout :: layout(~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<body>
+   <div class="container">
+   	<div class="card">
+       <div class="card-header">
+         <h3 class="card-title">LogInfos</h3>
+       </div>
+       <div class="table-responsive">
+         <table class="table card-table table-vcenter text-nowrap">
+           <thead>
+             <tr>
+               <th class="w-1">No.</th>
+               <th>Info</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr th:each="logInfo,rowStat : ${logInfos}">
+               <td><span class="text-muted" th:text="${rowStat.count}">001406</span></td>
+               <td th:text="${logInfo.info}">
+                 Tabdaq
+               </td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+ </div>      
+</body>
+</html>
