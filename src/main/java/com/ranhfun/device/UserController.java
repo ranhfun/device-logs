@@ -11,6 +11,8 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.SimpleSession;
 import org.apache.shiro.web.util.SavedRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisKeyValueTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -35,6 +37,8 @@ public class UserController {
 	@Autowired
 	private RedisKeyValueTemplate template2;
 	
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	
 	@RequiresPermissions("test")
 	//@RequiresRoles("test")
 	@GetMapping("/user")
@@ -53,7 +57,8 @@ public class UserController {
 //		session.setAttribute("saverequest", new SavedRequest(request));
 //		template2.insert(uuid, session);
 //		System.out.println("Found key " + uuid + ", value=" + template2.findById(uuid, SimpleSession.class));
-        return "user";
+		logger.info("access user list page");
+		return "user";
     }
 	
 	
